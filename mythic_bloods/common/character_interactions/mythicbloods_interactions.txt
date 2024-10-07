@@ -1,0 +1,159 @@
+offer_sanguine_curse = {
+	category = interaction_category_hostile
+	icon = sanguine
+	common_interaction = yes
+	interface_priority = 10
+	ai_maybe = yes
+	can_send_despite_rejection = yes
+	cooldown = { years = 3 }
+
+	ai_min_reply_days = 7
+	ai_max_reply_days = 30
+
+	send_name = OFFER_CURSE
+	desc = convert_to_demon_interaction_desc
+
+	is_shown = {
+		scope:actor.is_adult = yes
+		scope:actor.is_imprisoned = no
+		OR = {
+			scope:actor.has_trait = blood_demons
+			scope:actor.has_trait = fiendish_allure
+			scope:actor.any_secret.secret_type = secret_demon
+		}
+		NOT = { scope:actor.has_character_modifier = blood_drained }
+		scope:recipient.is_adult = yes
+		NOR = {
+			scope:recipient.has_trait = blood_demons
+			scope:recipient.has_trait = fiendish_allure
+			scope:recipient.any_secret.secret_type = secret_demon
+		}
+	}
+
+	is_valid_showing_failures_only = {
+		scope:actor.custom_description = {
+			text = demon_scheme_blocked
+			subject = scope:recipient
+			NOT = { scope:recipient.has_character_flag = block_convert_to_demon }
+		}
+		scope:recipient.exists = location
+		OR = {
+			scope:recipient.is_imprisoned = no
+			scope:recipient.imprisoner = scope:actor
+		}
+	}
+
+	on_accept = {
+		scope:recipient.send_interface_message = {
+			type = event_generic_good_with_text
+			title = gained_sanguine_curse_title
+			desc = gained_sanguine_curse_desc
+			right_icon = scope:recipient
+		}
+		scope:actor.trigger_event = demon.1001
+		scope:actor.send_interface_message = {
+			type = event_generic_good_with_text
+			title = sanguine_interaction_notification_title
+			desc = sanguine_interaction_notification_desc
+			right_icon = scope:recipient
+			if = { limit = { always = scope:hook } scope:actor.use_hook = scope:recipient }
+		}
+		scope:actor.add_character_modifier = { modifier = blood_drained years = 10 }
+	}
+
+	on_decline = {
+		scope:recipient.add_opinion = { target = scope:actor modifier = unfriendly_opinion opinion = -20 }
+		if = { limit = { scope:actor.any_secret.secret_type = secret_demon } random_secret = { limit = { secret_type = secret_demon } reveal_to = scope:recipient } }
+		scope:actor.add_opinion = { target = scope:recipient modifier = hurt_opinion opinion = -50 }
+		scope:actor.send_interface_message = {
+			type = event_generic_bad_with_text
+			title = sanguine_decline_notification_title
+			desc = sanguine_decline_notification_desc
+			right_icon = scope:recipient
+		}
+	}
+
+	ai_accept = {
+		base = -85
+		opinion_modifier = { opinion_target = scope:actor multiplier = 0.5 step = 5 max = 25 }
+		modifier = { has_relation_lover = scope:actor add = 100 desc = AI_YOUR_LOVER }
+		modifier = { has_relation_friend = scope:actor add = 75 desc = AI_YOUR_FRIEND }
+		modifier = { is_child_of = scope:actor add = 100 desc = AI_YOUR_CHILD }
+		modifier = { this.dynasty.dynast = scope:actor add = 30 desc = AI_YOU_ARE_THE_DYNAST }
+		modifier = { this.house.house_head = scope:actor add = 30 desc = AI_YOU_ARE_THE_HOUSE_HEAD }
+		modifier = { NOT = { is_child_of = scope:actor } is_close_family_of = scope:actor add = 75 desc = AI_YOUR_RELATIVE }
+		modifier = { is_spouse_of = scope:actor add = 100 desc = AI_YOUR_SPOUSE }
+
+		modifier = {
+			scope:actor.exists = house
+			house = { has_house_modifier = witch_coven }
+			desc = OFFER_WITCH_COVEN
+			add = 25
+		}
+
+		compare_modifier = { recipient = scope:actor value = intrigue multiplier = 2 desc = OFFER_INTRIGUE_MODIFIER }
+		ai_value_modifier = { who = scope:recipient ai_zeal = -1 max = 50 }
+		modifier = { add = 10 scope:actor.attraction >= 10 scope:actor.attraction < 20 scope:recipient.is_attracted_to_gender_of = scope:actor desc = OFFER_ATTRACTION }
+		modifier = { add = 20 scope:actor.attraction >= 20 scope:actor.attraction < 30 scope:recipient.is_attracted_to_gender_of = scope:actor desc = OFFER_ATTRACTION }
+		modifier = { add = 30 scope:actor.attraction >= 30 scope:recipient.is_attracted_to_gender_of = scope:actor desc = OFFER_ATTRACTION }
+
+		modifier = { scope:recipient.has_trait = zealous desc = OFFER_TRAIT_ZEALOUS add = -50 }
+		modifier = { scope:recipient.has_trait = devoted desc = OFFER_TRAIT_DEVOTED add = -30 }
+		modifier = { scope:recipient.has_trait = order_member desc = OFFER_TRAIT_ORDER_MEMBER add = -30 }
+		modifier = { scope:recipient.has_trait = craven desc = OFFER_TRAIT_CRAVEN add = -10 }
+		modifier = { scope:recipient.has_trait = paranoid desc = OFFER_TRAIT_PARANOID add = -20 }
+		modifier = { scope:recipient.has_trait = lifestyle_reveler desc = OFFER_REVELER add = 20 }
+		modifier = { scope:recipient.has_intrigue_lifestyle_trait_trigger = yes desc = OFFER_IS_A_SCHEMER add = 35 }
+		modifier = { scope:recipient.has_trait = seducer desc = OFFER_TRAIT_TARGET_SEDUCER add = 35 }
+		modifier = { scope:recipient.has_trait = deviant desc = OFFER_TRAIT_DEVIANT add = 35 }
+		modifier = { scope:recipient.has_trait = cannibal desc = OFFER_TRAIT_CANNIBAL add = 75 }
+		modifier = { scope:recipient.has_trait = lustful desc = OFFER_LUSTFUL_TRAIT add = 35 }
+		modifier = { scope:recipient.has_trait = deceitful desc = OFFER_TRAIT_DECEITFUL add = 15 }
+		modifier = { scope:recipient.has_trait = ambitious desc = OFFER_TRAIT_AMBITIOUS add = 20 }
+		modifier = { scope:recipient.has_trait = just desc = OFFER_TRAIT_JUST add = -35 }
+		modifier = { scope:recipient.has_trait = trusting desc = OFFER_TRAIT_TRUSTING add = 10 }
+		modifier = { scope:recipient.has_trait = sadistic desc = OFFER_TRAIT_SADISTIC add = 30 }
+		modifier = { scope:hook = yes add = 50 desc = SCHEME_WEAK_HOOK_USED }
+	}
+
+	send_option = {
+		is_valid = { scope:actor.has_usable_hook = scope:recipient }
+		flag = hook
+		localization = SCHEME_HOOK
+	}
+	should_use_extra_icon = { scope:actor.has_usable_hook = scope:recipient }
+	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+	send_options_exclusive = no
+
+	ai_potential = {
+		OR = {
+			scope:actor.has_trait = blood_demons
+			scope:actor.has_trait = fiendish_allure
+		}
+	}
+
+	ai_target_quick_trigger = { scope:recipient.adult = yes }
+	ai_targets = { ai_recipients = family max = 5 }
+	ai_targets = { ai_recipients = guests ai_recipients = courtiers ai_recipients = liege ai_recipients = vassals chance = 0.2 }
+
+	ai_frequency = 17
+	ai_will_do = {
+		base = -35
+		opinion_modifier = { who = scope:actor opinion_target = scope:recipient multiplier = 0.5 }
+		compatibility_modifier = { who = scope:actor compatibility_target = scope:recipient multiplier = 0.2 }
+		opinion_modifier = { who = scope:recipient opinion_target = scope:actor multiplier = 0.5 }
+		ai_value_modifier = {
+			who = scope:recipient
+			ai_honor = 0.2
+			ai_compassion = 0.1
+			ai_rationality = 0.2
+			ai_greed = 0.2
+			ai_sociability = 0.1
+		}
+		modifier = { add = { value = scope:recipient.highest_held_title_tier subtract = scope:actor.highest_held_title_tier multiply = 10 } }
+		modifier = { OR = { is_close_family_of = scope:recipient is_consort_of = scope:recipient has_relation_lover = scope:recipient has_relation_friend = scope:recipient } add = 35 }
+		modifier = { OR = { has_trait = cannibal has_trait = beauty_good has_relation_best_friend = scope:recipient has_relation_soulmate = scope:recipient } add = 30 }
+		modifier = { OR = { is_heir_of = scope:actor } add = 70 }
+		modifier = { exists = house exists = scope:recipient.house house = scope:recipient.house add = 10 }
+	}
+}

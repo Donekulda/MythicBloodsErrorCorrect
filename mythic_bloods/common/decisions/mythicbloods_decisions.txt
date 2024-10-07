@@ -1,0 +1,93 @@
+# Found New Kingdom
+blood_kingdom_decision = {
+	picture = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
+	major = yes
+	ai_check_interval = 60
+	desc = blood_kingdom_decision_desc
+
+	# The decision appears if the character has the Blood of Kings trait and holds a duchy or lower title
+	is_shown = {
+		has_trait = blood_kings
+		highest_held_title_tier <= tier_duchy
+		NOT = { has_game_rule = off_custom_kingdoms }
+		any_held_title = { tier >= tier_count }
+	}
+
+	# The decision is valid if the character is an independent ruler with the required prestige
+	is_valid = {
+		has_trait = blood_kings
+		highest_held_title_tier <= tier_duchy
+		prestige_level >= 1
+		is_independent_ruler = yes
+	}
+
+	# Showing requirements and validation failures only if character is an adult and not at war
+	is_valid_showing_failures_only = {
+		is_available_adult = yes
+		is_at_war = no
+		is_independent_ruler = yes
+	}
+
+	# The decision cost is balanced for Roads to Power mechanics
+	cost = {
+		gold = 150    # Increased cost to reflect Roads to Power balancing
+		prestige = 300
+		piety = 100
+	}
+
+	# Effects upon taking the decision
+	effect = {
+		blood_kingdom_effect = yes
+		if = {
+			limit = { NOT = { exists = global_var:found_kingdom_decision } }
+			set_global_variable = { name = found_kingdom_decision value = root }
+			set_global_variable = { name = found_kingdom_decision_kingdom value = root.dynasty }
+		}
+		primary_title = {
+			save_scope_as = old_title
+		}
+		create_dynamic_title = {
+			tier = kingdom
+			name = BLOOD_TITLE_NAME
+		}
+		hidden_effect = {
+			scope:new_title = {
+				change_title_holder = {
+					holder = root
+				}
+			}
+			resolve_title_and_vassal_change = root
+		}
+		trigger_event = major_decisions.1101
+	}
+
+	# AI will attempt this decision based on its potential and willingness
+	ai_potential = {
+		always = yes
+	}
+
+	# AI decision-making logic based on Roads to Power decision priorities
+	ai_will_do = {
+		base = 100
+		modifier = {
+			add = 50
+			has_trait = ambitious
+		}
+		modifier = {
+			add = -50
+			is_at_war = yes
+		}
+		modifier = {
+			add = 100
+			prestige_level >= 2
+		}
+		modifier = {
+			add = -30
+			has_relation_lover = yes
+		}
+		modifier = {
+			add = -20
+			has_trait = content
+		}
+	}
+}

@@ -1,0 +1,65 @@
+ancestral_throne = {
+	icon = prestige_positive
+	legitimacy_gain_mult = 0.25
+}
+
+blood_drained = {
+	icon = drink_negative
+	health = -0.5
+	monthly_piety_mult = -0.1        # Added piety penalty to reflect blood loss
+	stress_gain_mult = 0.2           # Increased stress gain due to the effect of being "drained"
+}
+
+secret_demon_blood = {
+	icon = magic_positive
+	opposites = {
+		inbred
+		blood_ancients
+		blood_kings
+		blood_midas
+		blood_timeless
+		blood_titans
+	}
+
+	intrigue = 6
+	martial = 1
+	stewardship = 2
+	prowess = 3
+
+	immortal = yes
+	fertility = -0.3
+	negative_random_genetic_chance = 200
+	monthly_lifestyle_xp_gain_mult = 0.3
+	dread_baseline_add = 30
+	monthly_piety_gain_per_dread_add = 0.1
+	attraction_opinion = 30
+
+	# Cultural modifiers have been updated for compatibility with Roads to Power
+	culture_modifier = {
+		parameter = temperate_trait_gives_bonuses
+		general_opinion = -25
+	}
+
+	culture_modifier = {
+		parameter = gregarious_trait_gives_bonuses
+		monthly_piety = 1.5
+		monthly_prestige = 3.0
+		general_opinion = 25
+	}
+
+	# Roads to Power AI adjustments
+	ai_vengefulness = dominant_positive_ai_value
+	ai_honor = -15
+	ai_energy = 10
+	ai_greed = 25
+	ai_compassion = very_low_negative_ai_value
+	ai_rationality = very_low_positive_ai_value
+
+	compatibility = {
+		deviant = @pos_compat_high
+		lustful = @pos_compat_high
+		chaste = @neg_compat_high
+		celibate = @neg_compat_high
+	}
+}
+
