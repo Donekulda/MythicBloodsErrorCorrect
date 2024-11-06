@@ -130,6 +130,7 @@ blood_demons = {
 	prowess = 5
 	has_trait = "witch"
 	immortal = yes
+	set_immortal_age = 29
 	fertility_mult = -0.2
 	monthly_lifestyle_xp_gain_mult = 0.3
 
@@ -226,6 +227,7 @@ fiendish_allure = {
 	prowess = 3
 
 	immortal = yes
+	set_immortal_age = 29
 	fertility_mult = -0.3
 	monthly_lifestyle_xp_gain_mult = 0.2
 	monthly_piety_gain_per_dread_add = 0.1

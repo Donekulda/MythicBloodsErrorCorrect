@@ -1,7 +1,7 @@
-version="0.7.6"
+version="0.7.7"
 tags={
 	"Alternative History"
 }
 name="Mythic Bloods"
-supported_version="1.12.*"
+supported_version="1.13.*"
 remote_file_id="2847628590"
