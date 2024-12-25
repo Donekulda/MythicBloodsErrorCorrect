@@ -19,14 +19,14 @@ offer_sanguine_curse = {
 		OR = {
 			scope:actor.has_trait = blood_demons
 			scope:actor.has_trait = fiendish_allure
-			scope:actor.any_secret.secret_type = secret_demon
+			scope:actor = { any_secret = { secret_type = secret_demon } }
 		}
 		NOT = { scope:actor.has_character_modifier = blood_drained }
 		scope:recipient.is_adult = yes
 		NOR = {
 			scope:recipient.has_trait = blood_demons
 			scope:recipient.has_trait = fiendish_allure
-			scope:recipient.any_secret.secret_type = secret_demon
+			scope:recipient = { any_secret = { secret_type = secret_demon } }
 		}
 	}
 
@@ -44,32 +44,54 @@ offer_sanguine_curse = {
 	}
 
 	on_accept = {
-		scope:recipient.send_interface_message = {
-			type = event_generic_good_with_text
-			title = gained_sanguine_curse_title
-			desc = gained_sanguine_curse_desc
-			right_icon = scope:recipient
+		scope:recipient = {
+			send_interface_message = {
+				type = event_generic_good_with_text
+				title = gained_sanguine_curse_title
+				desc = gained_sanguine_curse_desc
+				right_icon = scope:recipient
+			}
 		}
-		scope:actor.trigger_event = demon.1001
-		scope:actor.send_interface_message = {
-			type = event_generic_good_with_text
-			title = sanguine_interaction_notification_title
-			desc = sanguine_interaction_notification_desc
-			right_icon = scope:recipient
-			if = { limit = { always = scope:hook } scope:actor.use_hook = scope:recipient }
+		scope:actor = {
+			trigger_event = demon.1001
+			
+			send_interface_message = {
+				type = event_generic_good_with_text
+				title = sanguine_interaction_notification_title
+				desc = sanguine_interaction_notification_desc
+				right_icon = scope:recipient
+			}
+			if = { limit = { always = scope:hook } scope:actor = { use_hook = scope:recipient } }
+			
+			add_character_modifier = { modifier = blood_drained years = 10 }
 		}
-		scope:actor.add_character_modifier = { modifier = blood_drained years = 10 }
 	}
 
 	on_decline = {
-		scope:recipient.add_opinion = { target = scope:actor modifier = unfriendly_opinion opinion = -20 }
-		if = { limit = { scope:actor.any_secret.secret_type = secret_demon } random_secret = { limit = { secret_type = secret_demon } reveal_to = scope:recipient } }
-		scope:actor.add_opinion = { target = scope:recipient modifier = hurt_opinion opinion = -50 }
-		scope:actor.send_interface_message = {
-			type = event_generic_bad_with_text
-			title = sanguine_decline_notification_title
-			desc = sanguine_decline_notification_desc
-			right_icon = scope:recipient
+		scope:recipient = {
+			add_opinion = { 
+				target = scope:actor 
+				modifier = unfriendly_opinion 
+				opinion = -20 
+			}
+		}
+		if = { 
+			limit = { 
+				scope:actor = { any_secret = { secret_type = secret_demon } } 
+			} 
+			random_secret = { 
+				limit = { secret_type = secret_demon } 
+				reveal_to = scope:recipient
+			} 
+		}
+		scope:actor = {
+			add_opinion = { target = scope:recipient modifier = hurt_opinion opinion = -50 }
+			send_interface_message = {
+				type = event_generic_bad_with_text
+				title = sanguine_decline_notification_title
+				desc = sanguine_decline_notification_desc
+				right_icon = scope:recipient
+			}
 		}
 	}
 
@@ -103,7 +125,7 @@ offer_sanguine_curse = {
 		modifier = { scope:recipient.has_trait = craven desc = OFFER_TRAIT_CRAVEN add = -10 }
 		modifier = { scope:recipient.has_trait = paranoid desc = OFFER_TRAIT_PARANOID add = -20 }
 		modifier = { scope:recipient.has_trait = lifestyle_reveler desc = OFFER_REVELER add = 20 }
-		modifier = { scope:recipient.has_intrigue_lifestyle_trait_trigger = yes desc = OFFER_IS_A_SCHEMER add = 35 }
+		modifier = { scope:recipient = { has_intrigue_lifestyle_trait_trigger = yes } desc = OFFER_IS_A_SCHEMER add = 35 }
 		modifier = { scope:recipient.has_trait = seducer desc = OFFER_TRAIT_TARGET_SEDUCER add = 35 }
 		modifier = { scope:recipient.has_trait = deviant desc = OFFER_TRAIT_DEVIANT add = 35 }
 		modifier = { scope:recipient.has_trait = cannibal desc = OFFER_TRAIT_CANNIBAL add = 75 }

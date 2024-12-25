@@ -190,13 +190,21 @@ give_demon_secret_or_trait_effect = {
 demon_cleanup_effect = {
 	$SECRET$ = {
 		if = {
-			limit = { exists = secret_target exists = scope:target scope:target = secret_owner NOT = { secret_owner = $POV$ } }
+			limit = { #Checks to make sure the right target gets saved. Confusion might arise from the secret's "on_expose" effect since it sends the same event (secrets.0008) for both target and owner.
+				exists = secret_target
+				exists = scope:target
+				scope:target = secret_owner
+				NOT = { secret_owner = $POV$ } #To not mess up tooltips (in e.g. secrets.0108)
+			}
 			secret_owner = { save_scope_as = exposed_secret_target }
 		}
 		else_if = {
-			limit = { exists = secret_target }
+			limit = {
+				exists = secret_target
+			}
 			secret_target = { save_scope_as = exposed_secret_target }
 		}
+
 		secret_owner = { save_scope_as = local_secret_owner }
 	}
 
