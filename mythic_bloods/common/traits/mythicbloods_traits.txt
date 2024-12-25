@@ -1,25 +1,40 @@
+# Standard Values
+@pos_compat_high = 30
+@pos_compat_medium = 15
+@pos_compat_low = 5
+
+@neg_compat_high = -30
+@neg_compat_medium = -15
+@neg_compat_low = -5
+
 # Blood of Kings
 blood_kings = {
 	index = 4321
 	icon = blood_kings.dds
 	opposites = {
-		"inbred"
-		"blood_ancients"
-		"blood_demons"
-		"blood_midas"
-		"blood_timeless"
-		"blood_titans"
+		inbred
+		blood_ancients
+		blood_demons
+		blood_midas
+		blood_timeless
+		blood_titans
 	}
+
+	fame = yes
+	genetic = yes
+	physical = yes
+	good = yes
 
 	diplomacy = 8
 	martial = 5
 	stewardship = 3
 	health = 2
+	
+	inherit_chance = 55
+	birth = 0.001
+	random_creation_chance = 0.001
 
 	monthly_lifestyle_xp_gain_mult = 0.5
-	inherit_chance = 55
-	birth_chance = 0.001
-	random_creation_chance = 0.001
 
 	diplomatic_range_mult = 0.3
 	monthly_income_mult = 0.05
@@ -27,32 +42,25 @@ blood_kings = {
 	monthly_prestige_gain_mult = 1.0
 
 	culture_modifier = {
-		parameter = "just_trait_gives_bonuses"
+		parameter = just_trait_gives_bonuses
 		monthly_prestige_gain_mult = 1.0
 		prestige_level_impact_mult = 2.0
 		monthly_dynasty_prestige = 0.1
 		general_opinion = 25
 	}
 
-	ruler_designer = {
-		cost = 250
-		shown_in_ruler_designer = yes
-	}
+	ruler_designer_cost = 250
+	shown_in_ruler_designer = yes
 
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = "trait_blood_kings"
+				desc = trait_blood_kings
 			}
-			desc = "trait_blood_kings_character_desc"
+			desc = trait_blood_kings_character_desc
 		}
 	}
-
-	fame = yes
-	genetic = yes
-	physical = yes
-	good = yes
 }
 
 # Blood of the Titans
@@ -60,14 +68,22 @@ blood_titans = {
 	index = 4322
 	icon = blood_titans.dds
 	opposites = {
-		"inbred"
-		"blood_ancients"
-		"blood_demons"
-		"blood_kings"
-		"blood_midas"
-		"blood_timeless"
-		"giant"
+		inbred
+		blood_ancients
+		blood_demons
+		blood_kings
+		blood_midas
+		blood_timeless
+		giant
 	}
+
+	genetic = yes
+	physical = yes
+	good = yes
+
+	inherit_chance = 40
+	birth = 0.001
+	random_creation_chance = 0.001
 
 	martial = 5
 	prowess = 10
@@ -81,34 +97,24 @@ blood_titans = {
 	knight_effectiveness_mult = 1.0
 
 	culture_modifier = {
-		parameter = "strong_traits_more_valued"
+		parameter = strong_traits_more_valued
 		monthly_prestige = 1
 		men_at_arms_maintenance = -0.5
 		general_opinion = 25
 	}
 
-	ruler_designer = {
-		cost = 175
-		shown_in_ruler_designer = yes
-	}
+	ruler_designer_cost = 175
+	shown_in_ruler_designer = yes
 
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = "trait_blood_titans_desc"
+				desc = trait_blood_titans_desc
 			}
-			desc = "trait_blood_titans_character_desc"
+			desc = trait_blood_titans_character_desc
 		}
 	}
-
-	inherit_chance = 40
-	birth_chance = 0.001
-	random_creation_chance = 0.001
-
-	genetic = yes
-	physical = yes
-	good = yes
 }
 
 # Blood of Demons
@@ -116,81 +122,96 @@ blood_demons = {
 	index = 4323
 	icon = blood_demons.dds
 	opposites = {
-		"inbred"
-		"blood_ancients"
-		"blood_kings"
-		"blood_midas"
-		"blood_timeless"
-		"blood_titans"
+		inbred
+		blood_ancients
+		blood_kings
+		blood_midas
+		blood_timeless
+		blood_titans
 	}
+
+	genetic = no
+	physical = yes
+	good = no
+
+	birth = 0
+	random_creation_chance = 0.001
 
 	intrigue = 10
 	martial = 3
 	stewardship = 2
 	prowess = 5
-	has_trait = "witch"
+
+	intrigue = 6
+	martial = 1
+	stewardship = 2
+	prowess = 3
+	
 	immortal = yes
 	set_immortal_age = 29
-	fertility_mult = -0.2
+	
+	fertility = -0.2
+	
 	monthly_lifestyle_xp_gain_mult = 0.3
+	
+	#has_trait = witch
 
+	ruler_designer_cost = 150
+	shown_in_ruler_designer = yes
+	
 	dread_baseline_add = 30
 	monthly_piety_gain_per_dread_add = 0.1
+	
 	attraction_opinion = 30
 
 	culture_modifier = {
-		parameter = "temperate_trait_bonuses"
+		parameter = temperate_trait_bonuses
 		general_opinion = -25
 	}
 	culture_modifier = {
-		parameter = "gregarious_trait_gives_bonuses"
+		parameter = gregarious_trait_gives_bonuses
 		monthly_piety = 1.5
 		monthly_prestige = 3.0
 		general_opinion = 25
 	}
 
-	ruler_designer = {
-		cost = 150
-		shown_in_ruler_designer = yes
+	triggered_opinion = {
+		parameter = witchcraft_illegal
+		opinion_modifier = witchcraft_crime
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		parameter = witchcraft_shunned
+		opinion_modifier = witchcraft_intolerant
+		ignore_opinion_value_if_same_trait = yes
+	}
+	triggered_opinion = {
+		OR = {
+			has_trait = seducer
+			has_trait = schemer
+			has_trait = deviant
+			has_trait = cannibal
+			has_trait = sodomite
+			has_trait = fornicator
+			has_trait = lustful
+			has_trait = witch
+			has_trait = adulterer
+			has_trait = murderer
+		}
+		ignore_negative_culture_opinion = yes
+		ignore_different_faith_opinion = yes
+		attraction_opinion = 15
+		general_opinion = 10
 	}
 
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = "trait_blood_demons_desc"
+				desc = trait_blood_demons_desc
 			}
-			desc = "trait_blood_demons_character_desc"
+			desc = trait_blood_demons_character_desc
 		}
-	}
-
-	triggered_opinion = {
-		parameter = "witchcraft_illegal"
-		opinion_modifier = "witchcraft_crime"
-		ignore_opinion_value_if_same_trait = yes
-	}
-	triggered_opinion = {
-		parameter = "witchcraft_shunned"
-		opinion_modifier = "witchcraft_intolerant"
-		ignore_opinion_value_if_same_trait = yes
-	}
-	triggered_opinion = {
-		has_trait = {
-			"seducer"
-			"schemer"
-			"deviant"
-			"cannibal"
-			"sodomite"
-			"fornicator"
-			"lustful"
-			"witch"
-			"adulterer"
-			"murderer"
-		}
-		ignore_negative_culture_opinion = yes
-		ignore_different_faith_opinion = yes
-		attraction_opinion = 15
-		general_opinion = 10
 	}
 
 	compatibility = {
@@ -199,13 +220,9 @@ blood_demons = {
 		chaste = @neg_compat_high
 		celibate = @neg_compat_high
 	}
-
-	birth_chance = 0
-	random_creation_chance = 0.001
-
-	genetic = no
-	physical = yes
-	good = no
+	
+	flag = is_immortal
+	flag = immortal_visuals
 }
 
 # Blood of Demons (Secret) aka Fiendish Allure
@@ -213,13 +230,20 @@ fiendish_allure = {
 	index = 4324
 	icon = fiendish_allure.dds
 	opposites = {
-		"inbred"
-		"blood_ancients"
-		"blood_kings"
-		"blood_midas"
-		"blood_timeless"
-		"blood_titans"
+		inbred
+		blood_ancients
+		blood_kings
+		blood_midas
+		blood_timeless
+		blood_titans
 	}
+
+	genetic = no
+	physical = yes
+	good = no
+
+	birth = 0
+	random_creation_chance = 0.002
 
 	intrigue = 6
 	martial = 1
@@ -228,49 +252,47 @@ fiendish_allure = {
 
 	immortal = yes
 	set_immortal_age = 29
-	fertility_mult = -0.3
+	fertility = -0.3
 	monthly_lifestyle_xp_gain_mult = 0.2
 	monthly_piety_gain_per_dread_add = 0.1
 	attraction_opinion = 30
 
 	culture_modifier = {
-		parameter = "temperate_trait_bonuses"
+		parameter = temperate_trait_bonuses
 		general_opinion = -25
 	}
 	culture_modifier = {
-		parameter = "gregarious_trait_gives_bonuses"
+		parameter = gregarious_trait_gives_bonuses
 		monthly_piety = 1.5
 		monthly_prestige = 3.0
 		general_opinion = 25
 	}
 
-	ruler_designer = {
-		cost = 200
-		shown_in_ruler_designer = yes
-	}
+	ruler_designer_cost = 200
+	shown_in_ruler_designer = yes
 
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = "trait_fiendish_allure_desc"
+				desc = trait_fiendish_allure_desc
 			}
-			desc = "trait_fiendish_allure_character_desc"
+			desc = trait_fiendish_allure_character_desc
 		}
 	}
 
 	triggered_opinion = {
-		has_trait = {
-			"seducer"
-			"schemer"
-			"deviant"
-			"cannibal"
-			"sodomite"
-			"fornicator"
-			"lustful"
-			"witch"
-			"adulterer"
-			"murderer"
+		OR = {
+			has_trait = seducer
+			has_trait = schemer
+			has_trait = deviant
+			has_trait = cannibal
+			has_trait = sodomite
+			has_trait = fornicator
+			has_trait = lustful
+			has_trait = witch
+			has_trait = adulterer
+			has_trait = murderer
 		}
 		ignore_negative_culture_opinion = yes
 		ignore_different_faith_opinion = yes
@@ -284,13 +306,9 @@ fiendish_allure = {
 		chaste = @neg_compat_high
 		celibate = @neg_compat_high
 	}
-
-	birth_chance = 0
-	random_creation_chance = 0.002
-
-	genetic = no
-	physical = yes
-	good = no
+	
+	flag = is_immortal
+	flag = immortal_visuals
 }
 
 # Blood of the Ancients
@@ -298,22 +316,31 @@ blood_ancients = {
 	index = 4325
 	icon = blood_ancients.dds
 	opposites = {
-		"inbred"
-		"blood_demons"
-		"blood_kings"
-		"blood_midas"
-		"blood_timeless"
-		"blood_titans"
+		inbred
+		blood_demons
+		blood_kings
+		blood_midas
+		blood_timeless
+		blood_titans
 	}
+
+	genetic = yes
+	physical = yes
+	good = yes
 
 	learning = 3
 	stewardship = 1
 	diplomacy = 2
 	health = 1
-	fertility_mult = -0.85
+	fertility = -0.85
 	life_expectancy = 125
 	years_of_fertility = 100
+
+	inherit_chance = 100
+	birth = 0.001
+	random_creation_chance = 0.001
 	positive_random_genetic_chance = 1.0
+	
 	cultural_head_fascination_mult = -0.3
 
 	same_faith_opinion = 25
@@ -324,39 +351,29 @@ blood_ancients = {
 	tribal_government_levy_contribution_mult = 0.25
 	monthly_lifestyle_xp_gain_mult = 0.1
 
-	inherit_chance = 100
-	birth_chance = 0.001
-	random_creation_chance = 0.001
-
 	culture_modifier = {
-		parameter = "mystic_trait_gives_bonuses"
+		parameter = mystic_trait_gives_bonuses
 		monthly_prestige = 1.0
 		general_opinion = 25
 	}
 	culture_modifier = {
-		parameter = "herbalist_trait_gives_bonuses"
+		parameter = herbalist_trait_gives_bonuses
 		monthly_prestige = 1.0
 		general_opinion = 15
 	}
 
-	ruler_designer = {
-		cost = 300
-		shown_in_ruler_designer = yes
-	}
+	ruler_designer_cost = 300
+	shown_in_ruler_designer = yes
 
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = "trait_blood_ancients_desc"
+				desc = trait_blood_ancients_desc
 			}
-			desc = "trait_blood_ancients_character_desc"
+			desc = trait_blood_ancients_character_desc
 		}
 	}
-
-	genetic = yes
-	physical = yes
-	good = yes
 }
 
 # Blood of Midas
@@ -364,13 +381,17 @@ blood_midas = {
 	index = 4326
 	icon = blood_midas.dds
 	opposites = {
-		"inbred"
-		"blood_ancients"
-		"blood_demons"
-		"blood_kings"
-		"blood_timeless"
-		"blood_titans"
+		inbred
+		blood_ancients
+		blood_demons
+		blood_kings
+		blood_timeless
+		blood_titans
 	}
+
+	genetic = yes
+	physical = yes
+	good = yes
 
 	learning = -1
 	stewardship = 5
@@ -381,27 +402,21 @@ blood_midas = {
 	monthly_stewardship_lifestyle_xp_gain_mult = 1.0
 
 	inherit_chance = 35
-	birth_chance = 0.001
+	birth = 0.001
 	random_creation_chance = 0.001
 
-	ruler_designer = {
-		cost = 210
-		shown_in_ruler_designer = yes
-	}
+	ruler_designer_cost = 210
+	shown_in_ruler_designer = yes
 
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = "trait_blood_midas_desc"
+				desc = trait_blood_midas_desc
 			}
-			desc = "trait_blood_midas_character_desc"
+			desc = trait_blood_midas_character_desc
 		}
 	}
-
-	genetic = yes
-	physical = yes
-	good = yes
 }
 
 # Blood of the Timeless
@@ -409,21 +424,24 @@ blood_timeless = {
 	index = 4327
 	icon = blood_timeless.dds
 	opposites = {
-		"inbred"
-		"blood_ancients"
-		"blood_demons"
-		"blood_kings"
-		"blood_midas"
-		"blood_titans"
+		inbred
+		blood_ancients
+		blood_demons
+		blood_kings
+		blood_midas
+		blood_titans
 	}
+
+	genetic = yes
+	physical = yes
+	good = yes
 
 	learning = 24
 	stewardship = 3
 	diplomacy = 2
 	prowess = -5
-	general_opinion = -10
 	stress_gain_mult = 1.0
-	has_trait = "reincarnation"
+	#has_trait = reincarnation
 
 	health = -0.75
 	life_expectancy = 10
@@ -431,43 +449,40 @@ blood_timeless = {
 	monthly_lifestyle_xp_gain_mult = 1.5
 
 	inherit_chance = 45
-	birth_chance = 0.001
+	birth = 0.001
 	random_creation_chance = 0.001
+	
+	general_opinion = -10
 
 	culture_modifier = {
-		parameter = "mystic_trait_gives_bonuses"
+		parameter = mystic_trait_gives_bonuses
 		monthly_prestige = 3.0
 		monthly_piety = 10
 		same_faith_opinion = 75
 		ignore_negative_culture_opinion = yes
 	}
 	culture_modifier = {
-		parameter = "life_is_a_joke_trait_same_culture_opinion"
+		parameter = life_is_a_joke_trait_same_culture_opinion
 		same_culture_opinion = 35
 	}
 	culture_modifier = {
-		parameter = "weak_traits_looked_down_upon"
+		parameter = weak_traits_looked_down_upon
 		same_culture_opinion = -20
 	}
 
-	ruler_designer = {
-		cost = 120
-		shown_in_ruler_designer = yes
-	}
+	ruler_designer_cost = 120
+	shown_in_ruler_designer = yes
+	
 
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = "trait_blood_timeless_desc"
+				desc = trait_blood_timeless_desc
 			}
-			desc = "trait_blood_timeless_character_desc"
+			desc = trait_blood_timeless_character_desc
 		}
 	}
-
-	genetic = yes
-	physical = yes
-	good = yes
 }
 
 # Blood of All
@@ -475,8 +490,11 @@ blood_all = {
 	index = 4328
 	icon = blood_all.dds
 	opposites = {
-		"inbred"
+		inbred
 	}
+	genetic = yes
+	physical = yes
+	good = yes
 
 	diplomacy = 10
 	martial = 10
@@ -486,37 +504,32 @@ blood_all = {
 	prowess = 50
 	health = 10
 	life_expectancy = 100
-	fertility_mult = -0.3
+	fertility = -0.3
 
 	monthly_lifestyle_xp_gain_mult = 5.0
 
 	inherit_chance = 1
-	birth_chance = 0.0001
+	birth = 0.0001
 	random_creation_chance = 0.0001
 
 	monthly_prestige = 25.0
 	monthly_piety = 25.0
 	general_opinion = 100
 
-	ruler_designer = {
-		cost = 1000
-		shown_in_ruler_designer = yes
-	}
+	ruler_designer_cost = 1000
+	shown_in_ruler_designer = yes
 
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = "trait_blood_all_desc"
+				desc = trait_blood_all_desc
 			}
-			desc = "trait_blood_all_character_desc"
+			desc = trait_blood_all_character_desc
 		}
 	}
 
-	has_character_flag = "block_convert_to_demon"
-	genetic = yes
-	physical = yes
-	good = yes
+	has_character_flag = block_convert_to_demon
 }
 
 # Bilge-Blooded
@@ -524,13 +537,17 @@ blood_black = {
 	index = 4329
 	icon = blood_black.dds
 	opposites = {
-		"blood_ancients"
-		"blood_demons"
-		"blood_midas"
-		"blood_timeless"
-		"blood_kings"
-		"blood_titans"
+		blood_ancients
+		blood_demon
+		blood_midas
+		blood_timeless
+		blood_kings
+		blood_titans
 	}
+
+	genetic = yes
+	physical = yes
+	good = no
 
 	diplomacy = -10
 	martial = -10
@@ -538,38 +555,34 @@ blood_black = {
 	learning = -30
 	intrigue = -10
 	prowess = -50
-	attraction_opinion = -25
-	same_opinion = 50
-	has_trait = "cannibal"
+	
+	#has_trait = cannibal
 	health = -0.5
 	life_expectancy = 50
-	fertility_mult = -0.25
+	fertility = -0.25
 	negative_random_genetic_chance = 1.0
 
 	monthly_lifestyle_xp_gain_mult = -0.5
 
 	inherit_chance = 200
-	birth_chance = 0.002
+	birth = 0.002
 	random_creation_chance = 0.002
 
 	general_opinion = -50
+	same_opinion = 50
+	attraction_opinion = -25
 
-	ruler_designer = {
-		cost = -100
-		shown_in_ruler_designer = yes
-	}
+	ruler_designer_cost = -100
+	shown_in_ruler_designer = yes
+	
 
 	desc = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = "trait_blood_black_desc"
+				desc = trait_blood_black_desc
 			}
-			desc = "trait_blood_black_character_desc"
+			desc = trait_blood_black_character_desc
 		}
 	}
-
-	genetic = yes
-	physical = yes
-	good = no
 }
