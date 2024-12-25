@@ -66,7 +66,6 @@ blood_kings = {
 
 # Blood of the Titans
 blood_titans = {
-	index = 4322
 	icon = blood_titans.dds
 	opposites = {
 		inbred
@@ -120,7 +119,6 @@ blood_titans = {
 
 # Blood of Demons
 blood_demons = {
-	index = 4323
 	icon = blood_demons.dds
 	opposites = {
 		inbred
@@ -131,24 +129,19 @@ blood_demons = {
 		blood_titans
 	}
 
-	genetic = no
+	genetic = yes
 	physical = yes
 	good = no
 
+	birth = 0
 	random_creation = 0.001
 
 	intrigue = 10
 	martial = 3
 	stewardship = 2
 	prowess = 5
-
-	intrigue = 6
-	martial = 1
-	stewardship = 2
-	prowess = 3
 	
 	immortal = yes
-	set_immortal_age = 29
 	
 	fertility = -0.2
 	
@@ -186,22 +179,10 @@ blood_demons = {
 		ignore_opinion_value_if_same_trait = yes
 	}
 	triggered_opinion = {
-		OR = {
-			has_trait = seducer
-			has_trait = schemer
-			has_trait = deviant
-			has_trait = cannibal
-			has_trait = sodomite
-			has_trait = fornicator
-			has_trait = lustful
-			has_trait = witch
-			has_trait = adulterer
-			has_trait = murderer
-		}
+		MythB_has_sinful_traits = yes
 		ignore_negative_culture_opinion = yes
 		ignore_different_faith_opinion = yes
-		attraction_opinion = 15
-		general_opinion = 10
+		opinion_modifier = MythB_demon_blood_sinful_opinion
 	}
 
 	desc = {
@@ -213,6 +194,14 @@ blood_demons = {
 			desc = trait_blood_demons_character_desc
 		}
 	}
+
+	# Roads to Power AI adjustments
+	ai_vengefulness = dominant_positive_ai_value
+	ai_honor = -15
+	ai_energy = 10
+	ai_greed = 25
+	ai_compassion = very_low_negative_ai_value
+	ai_rationality = very_low_positive_ai_value
 
 	compatibility = {
 		deviant = @pos_compat_high
@@ -228,7 +217,7 @@ blood_demons = {
 
 # Blood of Demons (Secret) aka Fiendish Allure
 fiendish_allure = {
-	index = 4324
+	category = fame
 	icon = fiendish_allure.dds
 	opposites = {
 		inbred
@@ -239,7 +228,7 @@ fiendish_allure = {
 		blood_titans
 	}
 
-	genetic = no
+	genetic = yes
 	physical = yes
 	good = no
 
@@ -252,8 +241,9 @@ fiendish_allure = {
 	prowess = 3
 
 	immortal = yes
-	set_immortal_age = 29
+	
 	fertility = -0.3
+	
 	monthly_lifestyle_xp_gain_mult = 0.2
 	monthly_piety_gain_per_dread_add = 0.1
 	attraction_opinion = 30
@@ -283,23 +273,19 @@ fiendish_allure = {
 	}
 
 	triggered_opinion = {
-		OR = {
-			has_trait = seducer
-			has_trait = schemer
-			has_trait = deviant
-			has_trait = cannibal
-			has_trait = sodomite
-			has_trait = fornicator
-			has_trait = lustful
-			has_trait = witch
-			has_trait = adulterer
-			has_trait = murderer
-		}
+		MythB_has_sinful_traits = yes
 		ignore_negative_culture_opinion = yes
 		ignore_different_faith_opinion = yes
-		attraction_opinion = 15
-		general_opinion = 10
+		opinion_modifier = MythB_fiendish_allure_sinful_opinion
 	}
+
+	# Roads to Power AI adjustments
+	ai_vengefulness = dominant_positive_ai_value
+	ai_honor = -15
+	ai_energy = 10
+	ai_greed = 25
+	ai_compassion = very_low_negative_ai_value
+	ai_rationality = very_low_positive_ai_value
 
 	compatibility = {
 		deviant = @pos_compat_high
@@ -314,7 +300,6 @@ fiendish_allure = {
 
 # Blood of the Ancients
 blood_ancients = {
-	index = 4325
 	icon = blood_ancients.dds
 	opposites = {
 		inbred
@@ -379,7 +364,6 @@ blood_ancients = {
 
 # Blood of Midas
 blood_midas = {
-	index = 4326
 	icon = blood_midas.dds
 	opposites = {
 		inbred
@@ -422,7 +406,6 @@ blood_midas = {
 
 # Blood of the Timeless
 blood_timeless = {
-	index = 4327
 	icon = blood_timeless.dds
 	opposites = {
 		inbred
@@ -490,7 +473,6 @@ blood_timeless = {
 
 # Blood of All
 blood_all = {
-	index = 4328
 	icon = blood_all.dds
 	opposites = {
 		inbred
@@ -537,11 +519,10 @@ blood_all = {
 
 # Bilge-Blooded
 blood_black = {
-	index = 4329
 	icon = blood_black.dds
 	opposites = {
 		blood_ancients
-		blood_demon
+		blood_demons
 		blood_midas
 		blood_timeless
 		blood_kings
@@ -567,7 +548,7 @@ blood_black = {
 
 	monthly_lifestyle_xp_gain_mult = -0.5
 
-	inherit_chance = 200
+	inherit_chance = 100
 	birth = 0.002
 	random_creation = 0.002
 

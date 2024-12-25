@@ -67,3 +67,7 @@ demon.exposed.a:0 "[secret_exposer.GetShortUIName] does not realized what [secre
 TRAIT_FLAG_DESC_always_witch: "Will always become $magic_user_witch"
 TRAIT_FLAG_DESC_is_reincarnation: "Is always a Reincarnation"
 TRAIT_FLAG_DESC_is_reincarnation: "Is always a Cannibal"
+
+#Opinion Modifiers
+MythB_demon_blood_sinful_opinion: "Spawn of Beast"
+MythB_fiendish_allure_sinful_opinion: "Fiendlishly alluring"

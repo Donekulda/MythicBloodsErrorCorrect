@@ -1,0 +1,10 @@
+﻿##################################################
+# General Opinions
+
+MythB_demon_blood_sinful_opinion = {
+	opinion = 20
+}
+
+MythB_fiendish_allure_sinful_opinion = {
+	opinion = 10
+}
