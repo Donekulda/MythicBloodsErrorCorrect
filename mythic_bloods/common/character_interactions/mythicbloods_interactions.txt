@@ -1,4 +1,4 @@
-offer_sanguine_curse = {
+﻿offer_sanguine_curse = {
 	category = interaction_category_hostile
 	icon = sanguine
 	common_interaction = yes

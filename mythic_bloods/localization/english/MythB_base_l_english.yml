@@ -29,15 +29,15 @@ OFFER_TRAIT_JUST:0 "[GetTrait('just').GetName( ROOT.Char )]: $VALUE|+0=$"
 OFFER_TRAIT_TRUSTING:0 "[GetTrait('trusting').GetName( ROOT.Char )]: $VALUE|+0=$"
 OFFER_TRAIT_SADISTIC:0 "[GetTrait('sadistic').GetName( ROOT.Char )]: $VALUE|+0=$"
 
-OFFER_CURSE:0 "Offer Curse"
-gained_sanguine_curse_title:0 "Welcome to the Bloodline"
-gained_sanguine_curse_desc:0 "You have gained [GetTrait('blood_demons')] from [actor.GetShortUIName]"
-sanguine_interaction_notification_title:0 "Sanguine Offer Accepted"
-sanguine_interaction_notification_desc:0 "[recipient.GetShortUIName] has accepted yor offer and gained [GetTrait('blood_demons').GetName( recipient )]"
-sanguine_decline_notification_title:0 "Sanguine Curse Rejected"
-sanguine_decline_notification_desc:0 "[recipient.GetShortUIName] has scorned my offer!"
-offer_sanguine_curse:0 "Offer Sanguine Curse"
-convert_to_demon_interaction_desc:0 "Attempt to offer the [GetTrait('blood_demons').GetName( GetNullCharacter )] to [recipient.GetShortUINameNoTooltip]"
+OFFER_CURSE: "Offer Curse"
+gained_sanguine_curse_title: "Welcome to the Bloodline"
+gained_sanguine_curse_desc: "You have gained [GetTrait('blood_demons')] from [actor.GetShortUIName]"
+sanguine_interaction_notification_title: "Sanguine Offer Accepted"
+sanguine_interaction_notification_desc: "[recipient.GetShortUIName] has accepted yor offer and gained [GetTrait('blood_demons').GetName( recipient )]"
+sanguine_decline_notification_title: "Sanguine Curse Rejected"
+sanguine_decline_notification_desc: "[recipient.GetShortUIName] has scorned my offer!"
+offer_sanguine_curse: "Offer Sanguine Curse"
+convert_to_demon_interaction_desc: "Attempt to offer the [GetTrait('blood_demons').GetName( GetNullCharacter )] to [recipient.GetShortUINameNoTooltip]"
 blood_drained:0 "Drained of Blood"
 blood_drained_desc:0 "[ROOT.Char.GetSheHe] is too weak to Offer the Curse"
 demon_scheme_blocked:0 "[recipient.GetShortUIName] cannot accept the Curse."
@@ -61,3 +61,9 @@ demon.exposed.desc:0 "[secret_exposer.GetShortUIName] has exposed the secret cur
 demon.exposed.a:0 "[secret_exposer.GetShortUIName] does not realized what [secret_exposer.GetSheHe] has done..."
 
 #Game Options
+
+
+#Flags
+TRAIT_FLAG_DESC_always_witch: "Will always become $magic_user_witch"
+TRAIT_FLAG_DESC_is_reincarnation: "Is always a Reincarnation"
+TRAIT_FLAG_DESC_is_reincarnation: "Is always a Cannibal"

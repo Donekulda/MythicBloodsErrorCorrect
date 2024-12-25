@@ -9,8 +9,10 @@
 
 # Blood of Kings
 blood_kings = {
-	index = 4321
+	category = fame
+	
 	icon = blood_kings.dds
+	
 	opposites = {
 		inbred
 		blood_ancients
@@ -19,8 +21,7 @@ blood_kings = {
 		blood_timeless
 		blood_titans
 	}
-
-	fame = yes
+	
 	genetic = yes
 	physical = yes
 	good = yes
@@ -32,7 +33,7 @@ blood_kings = {
 	
 	inherit_chance = 55
 	birth = 0.001
-	random_creation_chance = 0.001
+	random_creation = 0.001
 
 	monthly_lifestyle_xp_gain_mult = 0.5
 
@@ -83,14 +84,14 @@ blood_titans = {
 
 	inherit_chance = 40
 	birth = 0.001
-	random_creation_chance = 0.001
+	random_creation = 0.001
 
 	martial = 5
 	prowess = 10
 	health = 2
 	dread_baseline_add = 10
 	stress_loss_mult = 0.5
-	same_opinion_mult = -30
+	same_opinion = -30
 	prowess_per_stress_level = 15
 
 	knight_limit = -2
@@ -134,8 +135,7 @@ blood_demons = {
 	physical = yes
 	good = no
 
-	birth = 0
-	random_creation_chance = 0.001
+	random_creation = 0.001
 
 	intrigue = 10
 	martial = 3
@@ -223,6 +223,7 @@ blood_demons = {
 	
 	flag = is_immortal
 	flag = immortal_visuals
+	flag = always_witch
 }
 
 # Blood of Demons (Secret) aka Fiendish Allure
@@ -243,7 +244,7 @@ fiendish_allure = {
 	good = no
 
 	birth = 0
-	random_creation_chance = 0.002
+	random_creation = 0.002
 
 	intrigue = 6
 	martial = 1
@@ -338,7 +339,7 @@ blood_ancients = {
 
 	inherit_chance = 100
 	birth = 0.001
-	random_creation_chance = 0.001
+	random_creation = 0.001
 	positive_random_genetic_chance = 1.0
 	
 	cultural_head_fascination_mult = -0.3
@@ -403,7 +404,7 @@ blood_midas = {
 
 	inherit_chance = 35
 	birth = 0.001
-	random_creation_chance = 0.001
+	random_creation = 0.001
 
 	ruler_designer_cost = 210
 	shown_in_ruler_designer = yes
@@ -450,7 +451,7 @@ blood_timeless = {
 
 	inherit_chance = 45
 	birth = 0.001
-	random_creation_chance = 0.001
+	random_creation = 0.001
 	
 	general_opinion = -10
 
@@ -483,6 +484,8 @@ blood_timeless = {
 			desc = trait_blood_timeless_character_desc
 		}
 	}
+	
+	flag = is_reincarnation
 }
 
 # Blood of All
@@ -510,7 +513,7 @@ blood_all = {
 
 	inherit_chance = 1
 	birth = 0.0001
-	random_creation_chance = 0.0001
+	random_creation = 0.0001
 
 	monthly_prestige = 25.0
 	monthly_piety = 25.0
@@ -566,7 +569,7 @@ blood_black = {
 
 	inherit_chance = 200
 	birth = 0.002
-	random_creation_chance = 0.002
+	random_creation = 0.002
 
 	general_opinion = -50
 	same_opinion = 50
@@ -585,4 +588,6 @@ blood_black = {
 			desc = trait_blood_black_character_desc
 		}
 	}
+	
+	flag = is_cannibal
 }

@@ -1,0 +1,11 @@
+﻿random_yearly_everyone_pulse = {
+	trigger = {
+		OR = {
+			MythB_does_not_have_special_trait_from_bloodline_trait_trigger = yes
+		}
+	}
+	effect = {
+		#Solves everything around bloodline traits
+		MythB_debug_bloodline_traits = yes
+	}
+}

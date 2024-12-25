@@ -1,4 +1,4 @@
-# Found Kingdom Effect (BoK)
+﻿# Found Kingdom Effect (BoK)
 blood_kingdom_effect = {
 	custom_tooltip = create_new_kingdom
 	show_as_tooltip = {
@@ -213,5 +213,26 @@ demon_cleanup_effect = {
 		remove_trait = fiendish_allure
 		add_trait_only_force_tooltip_if_not_pov_effect = { TRAIT = blood_demons POV = $POV$ }
 		remove_piety_level_for_shunned_or_criminal_trait_effect = { TRAIT = witch }
+	}
+}
+
+MythB_debug_bloodline_traits = {
+	MythB_give_spec_traits_based_on_bloodline_trait = yes
+}
+
+MythB_give_spec_traits_based_on_bloodline_trait = {
+	switch = {
+		trigger = has_trait
+		blood_demons = { add_trait = witch }
+		blood_timeless = { add_trait = reincarnation }
+		blood_black = { add_trait = cannibal }
+	}
+}
+
+MythB_solve_immortality_age_of_bloodline_trait = {
+	switch = {
+		trigger = has_trait
+		blood_demons = { set_immortal_age = 29 }
+		fiendish_allure = { set_immortal_age = 29 }
 	}
 }
