@@ -12,7 +12,7 @@ blood_kingdom_decision = {
 		has_trait = blood_kings
 		highest_held_title_tier <= tier_duchy
 		NOT = { has_game_rule = off_custom_kingdoms }
-		any_held_title = { tier >= tier_count }
+		any_held_title = { tier >= tier_county }
 	}
 
 	# The decision is valid if the character is an independent ruler with the required prestige
@@ -64,14 +64,23 @@ blood_kingdom_decision = {
 			tier = kingdom
 			name = BLOOD_TITLE_NAME
 		}
+		
+		#Dummy for change -> prev owner who doesn't exit
+		create_title_and_vassal_change = {
+			type = created
+			save_scope_as = change
+			add_claim_on_loss = no
+		}
 
 		hidden_effect = {
 			scope:new_title = {
 				change_title_holder = {
 					holder = root
+					change = scope:change
 				}
 			}
-			resolve_title_and_vassal_change = root
+			#Execute and destory the target title and vassal change -> dummy scope is destroyed
+			resolve_title_and_vassal_change = scope:change
 		}
 		trigger_event = major_decisions.1101
 	}
