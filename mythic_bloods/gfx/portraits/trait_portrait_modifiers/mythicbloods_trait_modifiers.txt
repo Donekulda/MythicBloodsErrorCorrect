@@ -2,47 +2,49 @@
 	blood_titans = {
 		traits = { blood_titans }
 		dna_modifiers = {
-			morph = {
-				mode = modify
-				gene = gene_chin_forward
-				template = chin_forward_pos
-				value = 0.1
-			}
-			morph = {
-				mode = modify
-				gene = gene_bs_forehead_brow_forward
-				template = forehead_brow_forward_pos
-				value = 0.12
-			}
-			morph = {
-				mode = modify
-				gene = gene_forehead_height
-				template = forehead_height_neg
-				value = -0.1
-			}
-			morph = {
-				mode = modify
-				gene = gene_head_height
-				template = head_height_pos
-				value = 0.1
-			}
-			morph = {
-				mode = modify
-				gene = gene_jaw_height
-				template = jaw_height_pos
-				value = 0.12
-			}
-			morph = {
-				mode = modify
-				gene = gene_jaw_forward
-				template = jaw_forward_pos
-				value = 0.1
-			}
-			morph = {
-				mode = modify_multiply
-				gene = gene_height
-				template = giant_height
-				value = 0.25
+			human = {
+				morph = {
+					mode = modify
+					gene = gene_chin_forward
+					template = chin_forward_pos
+					value = 0.1
+				}
+				morph = {
+					mode = modify
+					gene = gene_bs_forehead_brow_forward
+					template = forehead_brow_forward_pos
+					value = 0.12
+				}
+				morph = {
+					mode = modify
+					gene = gene_forehead_height
+					template = forehead_height_neg
+					value = -0.1
+				}
+				morph = {
+					mode = modify
+					gene = gene_head_height
+					template = head_height_pos
+					value = 0.1
+				}
+				morph = {
+					mode = modify
+					gene = gene_jaw_height
+					template = jaw_height_pos
+					value = 0.12
+				}
+				morph = {
+					mode = modify
+					gene = gene_jaw_forward
+					template = jaw_forward_pos
+					value = 0.1
+				}
+				morph = {
+					mode = modify_multiply
+					gene = gene_height
+					template = giant_height
+					value = 0.25
+				}
 			}
 		}
 	}
@@ -52,11 +54,13 @@ blood_midas = {
 	blood_midas = {
 		traits = {	blood_midas	}
 		dna_modifiers = {
-			color =	{
-				gene = eye_color
-				mode = replace
-				x = 0.4
-				y = 0.15
+			human = {
+				color =	{
+					gene = eye_color
+					mode = replace
+					x = 0.4
+					y = 0.15
+				}
 			}
 		}
 	}
@@ -68,24 +72,26 @@ blood_black = {
 			blood_black
 		}
 		dna_modifiers = {
-			morph = {
-				mode = add
-				gene = gene_tuberculosis
-				value = 1.0
-				template = tuberculosis
-			}
-			color = {
-				gene = skin_color
-				mode = modify
-				
-				x = 0.0
-				y = -0.1
-			}
-			accessory = {
-				mode = modify				
-				gene = eye_accessory
-				template = bloodshot_eyes
-				value = 0.5
+			human = {
+				morph = {
+					mode = add
+					gene = gene_tuberculosis
+					value = 1.0
+					template = tuberculosis
+				}
+				color = {
+					gene = skin_color
+					mode = modify
+					
+					x = 0.0
+					y = -0.1
+				}
+				accessory = {
+					mode = modify				
+					gene = eye_accessory
+					template = bloodshot_eyes
+					value = 0.5
+				}
 			}
 		}
 	}
@@ -97,11 +103,13 @@ blood_timeless = {
 			blood_timeless
 		}
 		dna_modifiers = {
-			accessory = {
-				mode = add				
-				gene = special_headgear_blindfold
-				template = blindfold
-				value = 0.5
+			human = {
+				accessory = {
+					mode = add				
+					gene = special_headgear_blindfold
+					template = blindfold
+					value = 0.5
+				}
 			}
 		}
 	}
@@ -114,19 +122,21 @@ blood_demons = {
 			fiendish_allure
 		}
 		dna_modifiers = {
-			color = {
-				gene = skin_color
-				mode = modify
-				
-				x = -1.0
-				y = -1.0
-			}
-			color = {
-				gene = eye_color
-				mode = replace
+			human = {
+				color = {
+					gene = skin_color
+					mode = modify
 					
-				x = -0.8
-				y = 0.5
+					x = -1.0
+					y = -1.0
+				}
+				color = {
+					gene = eye_color
+					mode = replace
+						
+					x = -0.8
+					y = 0.5
+				}
 			}
 		}
 	}
