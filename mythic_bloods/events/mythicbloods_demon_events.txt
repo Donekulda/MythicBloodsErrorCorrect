@@ -1,7 +1,23 @@
-namespace = demon
+﻿namespace = demon
+
+#DEMON CONVERSION SUCCESS
+
+scripted_trigger demon_1001_can_learn_owner_secret = {
+	save_temporary_scope_as = secret_learner
+	scope:actor = {
+		any_secret = {
+			secret_type = secret_demon
+			NOT = { is_known_by = scope:secret_learner }
+		}
+	}
+}
+
+scripted_trigger demon_1001_unlock_reveal_trigger = {
+	scope:recipient = { demon_1001_can_learn_owner_secret = yes }
+}
 
 #DEMON EXPOSED
-demon.exposed = {
+demon.0001 = {
 	type = character_event
 	title = demon.exposed.t
 	desc = demon.exposed.desc
@@ -28,28 +44,13 @@ demon.exposed = {
 
 #DEMON CONVERSION SUCCESS
 
-scripted_trigger demon_1001_can_learn_owner_secret = {
-	save_temporary_scope_as = secret_learner
-	scope:actor = {
-		any_secret = {
-			secret_type = secret_demon
-			NOT = { is_known_by = scope:secret_learner }
-		}
-	}
-}
-
-scripted_trigger demon_1001_unlock_reveal_trigger = {
-	scope:recipient = { demon_1001_can_learn_owner_secret = yes }
-}
-
-
 demon.1001 = { #by Mathilda Bjarnehed
 	type = character_event
 	title = demon.1001.t
 	desc = demon.1001.desc
 	theme = witchcraft
 	override_background = {
-		event_background = sitting_room
+		reference = sitting_room
 	}
 	left_portrait = {
 		character = scope:recipient
