@@ -15,11 +15,11 @@ MythB_blood_of_kings = {
 	
 	opposites = {
 		inbred
-		blood_ancients
-		blood_demons
-		blood_midas
-		blood_timeless
-		blood_titans
+		MythB_blood_of_ancients
+		MythB_blood_of_demons
+		MythB_blood_of_midas
+		MythB_blood_of_timeless
+		MythB_blood_of_titans
 	}
 	
 	genetic = yes
@@ -65,15 +65,15 @@ MythB_blood_of_kings = {
 }
 
 # Blood of the Titans
-blood_titans = {
-	icon = blood_titans.dds
+MythB_blood_of_titans = {
+	icon = MythB_blood_of_titans.dds
 	opposites = {
 		inbred
-		blood_ancients
-		blood_demons
+		MythB_blood_of_ancients
+		MythB_blood_of_demons
 		MythB_blood_of_kings
-		blood_midas
-		blood_timeless
+		MythB_blood_of_midas
+		MythB_blood_of_timeless
 		giant
 	}
 
@@ -110,23 +110,23 @@ blood_titans = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = trait_blood_titans_desc
+				desc = trait_MythB_blood_of_titans_desc
 			}
-			desc = trait_blood_titans_character_desc
+			desc = trait_MythB_blood_of_titans_character_desc
 		}
 	}
 }
 
 # Blood of Demons
-blood_demons = {
-	icon = blood_demons.dds
+MythB_blood_of_demons = {
+	icon = MythB_blood_of_demons.dds
 	opposites = {
 		inbred
-		blood_ancients
+		MythB_blood_of_ancients
 		MythB_blood_of_kings
-		blood_midas
-		blood_timeless
-		blood_titans
+		MythB_blood_of_midas
+		MythB_blood_of_timeless
+		MythB_blood_of_titans
 	}
 
 	genetic = yes
@@ -191,9 +191,9 @@ blood_demons = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = trait_blood_demons_desc
+				desc = trait_MythB_blood_of_demons_desc
 			}
-			desc = trait_blood_demons_character_desc
+			desc = trait_MythB_blood_of_demons_character_desc
 		}
 	}
 
@@ -218,16 +218,16 @@ blood_demons = {
 }
 
 # Blood of Demons (Secret) aka Fiendish Allure
-fiendish_allure = {
+MythB_fiendish_allure = {
 	category = fame
-	icon = fiendish_allure.dds
+	icon = MythB_fiendish_allure.dds
 	opposites = {
 		inbred
-		blood_ancients
+		MythB_blood_of_ancients
 		MythB_blood_of_kings
-		blood_midas
-		blood_timeless
-		blood_titans
+		MythB_blood_of_midas
+		MythB_blood_of_timeless
+		MythB_blood_of_titans
 	}
 
 	genetic = yes
@@ -268,9 +268,9 @@ fiendish_allure = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = trait_fiendish_allure_desc
+				desc = trait_MythB_fiendish_allure_desc
 			}
-			desc = trait_fiendish_allure_character_desc
+			desc = trait_MythB_fiendish_allure_character_desc
 		}
 	}
 
@@ -279,7 +279,7 @@ fiendish_allure = {
 	#	MythB_has_sinful_traits = yes
 	#	ignore_negative_culture_opinion = yes
 	#	ignore_different_faith_opinion = yes
-	#	opinion_modifier = MythB_fiendish_allure_sinful_opinion
+	#	opinion_modifier = MythB_MythB_fiendish_allure_sinful_opinion
 	#}
 
 	# Roads to Power AI adjustments
@@ -302,15 +302,15 @@ fiendish_allure = {
 }
 
 # Blood of the Ancients
-blood_ancients = {
-	icon = blood_ancients.dds
+MythB_blood_of_ancients = {
+	icon = MythB_blood_of_ancients.dds
 	opposites = {
 		inbred
-		blood_demons
+		MythB_blood_of_demons
 		MythB_blood_of_kings
-		blood_midas
-		blood_timeless
-		blood_titans
+		MythB_blood_of_midas
+		MythB_blood_of_timeless
+		MythB_blood_of_titans
 	}
 
 	genetic = yes
@@ -358,23 +358,23 @@ blood_ancients = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = trait_blood_ancients_desc
+				desc = trait_MythB_blood_of_ancients_desc
 			}
-			desc = trait_blood_ancients_character_desc
+			desc = trait_MythB_blood_of_ancients_character_desc
 		}
 	}
 }
 
 # Blood of Midas
-blood_midas = {
-	icon = blood_midas.dds
+MythB_blood_of_midas = {
+	icon = MythB_blood_of_midas.dds
 	opposites = {
 		inbred
-		blood_ancients
-		blood_demons
+		MythB_blood_of_ancients
+		MythB_blood_of_demons
 		MythB_blood_of_kings
-		blood_timeless
-		blood_titans
+		MythB_blood_of_timeless
+		MythB_blood_of_titans
 	}
 
 	genetic = yes
@@ -400,23 +400,23 @@ blood_midas = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = trait_blood_midas_desc
+				desc = trait_MythB_blood_of_midas_desc
 			}
-			desc = trait_blood_midas_character_desc
+			desc = trait_MythB_blood_of_midas_character_desc
 		}
 	}
 }
 
 # Blood of the Timeless
-blood_timeless = {
-	icon = blood_timeless.dds
+MythB_blood_of_timeless = {
+	icon = MythB_blood_of_timeless.dds
 	opposites = {
 		inbred
-		blood_ancients
-		blood_demons
+		MythB_blood_of_ancients
+		MythB_blood_of_demons
 		MythB_blood_of_kings
-		blood_midas
-		blood_titans
+		MythB_blood_of_midas
+		MythB_blood_of_titans
 	}
 
 	genetic = yes
@@ -465,9 +465,9 @@ blood_timeless = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = trait_blood_timeless_desc
+				desc = trait_MythB_blood_of_timeless_desc
 			}
-			desc = trait_blood_timeless_character_desc
+			desc = trait_MythB_blood_of_timeless_character_desc
 		}
 	}
 	
@@ -475,8 +475,8 @@ blood_timeless = {
 }
 
 # Blood of All
-blood_all = {
-	icon = blood_all.dds
+MythB_blood_of_all = {
+	icon = MythB_blood_of_all.dds
 	opposites = {
 		inbred
 	}
@@ -511,9 +511,9 @@ blood_all = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = trait_blood_all_desc
+				desc = trait_MythB_blood_of_all_desc
 			}
-			desc = trait_blood_all_character_desc
+			desc = trait_MythB_blood_of_all_character_desc
 		}
 	}
 
@@ -521,15 +521,15 @@ blood_all = {
 }
 
 # Bilge-Blooded
-blood_black = {
-	icon = blood_black.dds
+MythB_dark_blood = {
+	icon = MythB_dark_blood.dds
 	opposites = {
-		blood_ancients
-		blood_demons
-		blood_midas
-		blood_timeless
+		MythB_blood_of_ancients
+		MythB_blood_of_demons
+		MythB_blood_of_midas
+		MythB_blood_of_timeless
 		MythB_blood_of_kings
-		blood_titans
+		MythB_blood_of_titans
 	}
 
 	genetic = yes
@@ -567,9 +567,9 @@ blood_black = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = trait_blood_black_desc
+				desc = trait_MythB_dark_blood_desc
 			}
-			desc = trait_blood_black_character_desc
+			desc = trait_MythB_dark_blood_character_desc
 		}
 	}
 	

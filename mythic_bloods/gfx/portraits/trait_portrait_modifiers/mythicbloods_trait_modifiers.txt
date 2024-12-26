@@ -1,6 +1,6 @@
-﻿blood_titans = {
-	blood_titans = {
-		traits = { blood_titans }
+﻿MythB_blood_of_titans = {
+	MythB_blood_of_titans = {
+		traits = { MythB_blood_of_titans }
 		dna_modifiers = {
 			human = {
 				morph = {
@@ -50,9 +50,9 @@
 	}
 }
 
-blood_midas = {
-	blood_midas = {
-		traits = {	blood_midas	}
+MythB_blood_of_midas = {
+	MythB_blood_of_midas = {
+		traits = {	MythB_blood_of_midas	}
 		dna_modifiers = {
 			human = {
 				color =	{
@@ -66,10 +66,10 @@ blood_midas = {
 	}
 }
 
-blood_black = {
-	blood_black = {
+MythB_dark_blood = {
+	MythB_dark_blood = {
 		traits = {
-			blood_black
+			MythB_dark_blood
 		}
 		dna_modifiers = {
 			human = {
@@ -97,10 +97,10 @@ blood_black = {
 	}
 }
 
-blood_timeless = {
-	blood_timeless = {
+MythB_blood_of_timeless = {
+	MythB_blood_of_timeless = {
 		traits = {
-			blood_timeless
+			MythB_blood_of_timeless
 		}
 		dna_modifiers = {
 			human = {
@@ -115,11 +115,11 @@ blood_timeless = {
 	}
 }
 
-blood_demons = {
-	blood_demons = {
+MythB_blood_of_demons = {
+	MythB_blood_of_demons = {
 		traits = {
-			blood_demons
-			fiendish_allure
+			MythB_blood_of_demons
+			MythB_fiendish_allure
 		}
 		dna_modifiers = {
 			human = {

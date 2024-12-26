@@ -1,15 +1,15 @@
 ﻿MythB_does_not_have_special_trait_from_bloodline_trait_trigger = {
 	OR = {
 		AND = {
-			has_trait = blood_demons
+			has_trait = MythB_blood_of_demons
 			NOT = { has_trait = witch }
 		}
 		AND = {
-			has_trait = blood_timeless
+			has_trait = MythB_blood_of_timeless
 			NOT = { has_trait = reincarnation }
 		}
 		AND = {
-			has_trait = blood_black
+			has_trait = MythB_dark_blood
 			NOT = { has_trait = cannibal }
 		}
 	}

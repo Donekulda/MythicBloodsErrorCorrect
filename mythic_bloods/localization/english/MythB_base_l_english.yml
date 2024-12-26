@@ -31,14 +31,14 @@ OFFER_TRAIT_SADISTIC:0 "[GetTrait('sadistic').GetName( ROOT.Char )]: $VALUE|+0=$
 
 OFFER_CURSE: "Offer Curse"
 gained_sanguine_curse_title: "Welcome to the Bloodline"
-gained_sanguine_curse_desc: "You have gained [GetTrait('blood_demons')] from [actor.GetShortUIName]"
+gained_sanguine_curse_desc: "You have gained [GetTrait('MythB_blood_of_demons')] from [actor.GetShortUIName]"
 sanguine_interaction_notification_title: "Sanguine Offer Accepted"
-sanguine_interaction_notification_desc: "[recipient.GetShortUIName] has accepted yor offer and gained [GetTrait('blood_demons').GetName( recipient )]"
+sanguine_interaction_notification_desc: "[recipient.GetShortUIName] has accepted yor offer and gained [GetTrait('MythB_blood_of_demons').GetName( recipient )]"
 sanguine_decline_notification_title: "Sanguine Curse Rejected"
 sanguine_decline_notification_desc: "[recipient.GetShortUIName] has scorned my offer!"
 MythB_offer_sanguine_curse_interaction: "Offer Sanguine Curse"
 MythB_offer_sanguine_curse_interaction_extra_icon: "$hook_extra_icon$"
-convert_to_demon_interaction_desc: "Attempt to offer the [GetTrait('blood_demons').GetName( GetNullCharacter )] to [recipient.GetShortUINameNoTooltip]"
+convert_to_demon_interaction_desc: "Attempt to offer the [GetTrait('MythB_blood_of_demons').GetName( GetNullCharacter )] to [recipient.GetShortUINameNoTooltip]"
 MythB_blood_drained_modifier:0 "Drained of Blood"
 blood_drained_desc:0 "[ROOT.Char.GetSheHe] is too weak to Offer the Curse"
 
@@ -49,8 +49,8 @@ sanguine_secret_notification_desc:0 "[recipient.GetShortUIName] now knows that y
 
 #Secret Types
 MythB_secret_demon:0 "Demon Blooded"
-MythB_secret_demon_desc:0 "Has the [GetTrait('blood_demons').GetName( GetNullCharacter )]"
-MythB_secret_demon_tooltip_desc:0 "This character has the [GetTrait('blood_demons').GetName( GetNullCharacter )]"
+MythB_secret_demon_desc:0 "Has the [GetTrait('MythB_blood_of_demons').GetName( GetNullCharacter )]"
+MythB_secret_demon_tooltip_desc:0 "This character has the [GetTrait('MythB_blood_of_demons').GetName( GetNullCharacter )]"
 MythB_secret_demon_type_desc: "$MythB_secret_demon_tooltip_desc$"
 
 #Events
@@ -63,7 +63,7 @@ demon.1001.c:0 "[recipient.GetSheHe|U] must find [recipient.GetHerHis] own path.
 demon.1001.message:0 "My Sire reveals [owner.GetHerselfHimself] to me"
 
 demon.exposed.t:0 "The Light! It burns me!"
-demon.exposed.desc:0 "[secret_exposer.GetShortUIName] has exposed the secret curse on my blood. No everyone knows that I have [GetTrait('blood_demons').GetName(ROOT.Char)]"
+demon.exposed.desc:0 "[secret_exposer.GetShortUIName] has exposed the secret curse on my blood. No everyone knows that I have [GetTrait('MythB_blood_of_demons').GetName(ROOT.Char)]"
 demon.exposed.a:0 "[secret_exposer.GetShortUIName] does not realized what [secret_exposer.GetSheHe] has done..."
 
 #Game Options

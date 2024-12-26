@@ -17,15 +17,15 @@
 		scope:actor.is_adult = yes
 		scope:actor.is_imprisoned = no
 		OR = {
-			scope:actor.has_trait = blood_demons
-			scope:actor.has_trait = fiendish_allure
+			scope:actor.has_trait = MythB_blood_of_demons
+			scope:actor.has_trait = MythB_fiendish_allure
 			scope:actor = { any_secret = { secret_type = MythB_secret_demon } }
 		}
 		NOT = { scope:actor.has_character_modifier = MythB_blood_drained_modifier }
 		scope:recipient.is_adult = yes
 		NOR = {
-			scope:recipient.has_trait = blood_demons
-			scope:recipient.has_trait = fiendish_allure
+			scope:recipient.has_trait = MythB_blood_of_demons
+			scope:recipient.has_trait = MythB_fiendish_allure
 			scope:recipient = { any_secret = { secret_type = MythB_secret_demon } }
 		}
 	}
@@ -154,8 +154,8 @@
 
 	ai_potential = {
 		OR = {
-			scope:actor.has_trait = blood_demons
-			scope:actor.has_trait = fiendish_allure
+			scope:actor.has_trait = MythB_blood_of_demons
+			scope:actor.has_trait = MythB_fiendish_allure
 		}
 	}
 
