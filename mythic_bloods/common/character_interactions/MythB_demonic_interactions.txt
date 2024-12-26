@@ -163,8 +163,8 @@
 
 	ai_potential = {
 		OR = {
-			scope:actor.has_trait = MythB_blood_of_demons
-			scope:actor.has_trait = MythB_fiendish_allure
+			has_trait = MythB_blood_of_demons
+			has_trait = MythB_fiendish_allure
 		}
 	}
 
