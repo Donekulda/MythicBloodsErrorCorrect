@@ -12,7 +12,7 @@ blood_kingdom_effect = {
 	# Adds dynasty modifier related to the Ancestral Throne
 	dynasty = {
 		add_dynasty_modifier = {
-			modifier = ancestral_throne
+			modifier = MythB_ancestral_throne_modifier
 		}
 	}
 
@@ -173,15 +173,15 @@ give_demon_secret_or_trait_effect = {
 			NOR = {
 				has_trait = blood_demons
 				has_trait = fiendish_allure
-				any_secret = { secret_type = secret_demon }
+				any_secret = { secret_type = MythB_secret_demon }
 			}
 		}
 		if = {
 			limit = {
 				trait_is_shunned_or_criminal_in_my_or_lieges_faith_trigger = { TRAIT = witch GENDER_CHARACTER = scope:witch_character }
 			}
-			add_secret = { type = secret_demon }
-			random_secret = { limit = { secret_type = secret_demon } save_scope_as = demon_secret }
+			add_secret = { type = MythB_secret_demon }
+			random_secret = { limit = { secret_type = MythB_secret_demon } save_scope_as = demon_secret }
 			add_trait = fiendish_allure
 		}
 		else = { add_trait = blood_demons }
@@ -211,7 +211,7 @@ demon_cleanup_effect = {
 	}
 
 	if = {
-		limit = { $SECRET$ = { secret_type = secret_demon } }
+		limit = { $SECRET$ = { secret_type = MythB_secret_demon } }
 		remove_trait = fiendish_allure
 		add_trait_only_force_tooltip_if_not_pov_effect = { TRAIT = blood_demons POV = $POV$ }
 		remove_piety_level_for_shunned_or_criminal_trait_effect = { TRAIT = witch }

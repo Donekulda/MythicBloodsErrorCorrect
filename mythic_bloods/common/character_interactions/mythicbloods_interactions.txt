@@ -19,14 +19,14 @@
 		OR = {
 			scope:actor.has_trait = blood_demons
 			scope:actor.has_trait = fiendish_allure
-			scope:actor = { any_secret = { secret_type = secret_demon } }
+			scope:actor = { any_secret = { secret_type = MythB_secret_demon } }
 		}
-		NOT = { scope:actor.has_character_modifier = blood_drained }
+		NOT = { scope:actor.has_character_modifier = MythB_blood_drained_modifier }
 		scope:recipient.is_adult = yes
 		NOR = {
 			scope:recipient.has_trait = blood_demons
 			scope:recipient.has_trait = fiendish_allure
-			scope:recipient = { any_secret = { secret_type = secret_demon } }
+			scope:recipient = { any_secret = { secret_type = MythB_secret_demon } }
 		}
 	}
 
@@ -65,7 +65,7 @@
 			}
 			if = { limit = { always = scope:hook } scope:actor = { use_hook = scope:recipient } }
 			
-			add_character_modifier = { modifier = blood_drained years = 10 }
+			add_character_modifier = { modifier = MythB_blood_drained_modifier years = 10 }
 		}
 	}
 
@@ -79,11 +79,11 @@
 		}
 		if = { 
 			limit = { 
-				scope:actor = { any_secret = { secret_type = secret_demon } } 
+				scope:actor = { any_secret = { secret_type = MythB_secret_demon } } 
 			} 
 			scope:actor = {
 				random_secret = { 
-					limit = { secret_type = secret_demon } 
+					limit = { secret_type = MythB_secret_demon } 
 					reveal_to = scope:recipient
 				}
 			}

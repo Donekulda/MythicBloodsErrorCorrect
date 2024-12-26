@@ -1,16 +1,16 @@
-﻿ancestral_throne = {
+﻿MythB_ancestral_throne_modifier = {
 	icon = prestige_positive
 	legitimacy_gain_mult = 0.25
 }
 
-blood_drained = {
+MythB_blood_drained_modifier = {
 	icon = drink_negative
 	health = -0.5
 	monthly_piety_gain_mult = -0.1        # Added piety penalty to reflect blood loss
 	stress_gain_mult = 0.2           # Increased stress gain due to the effect of being "drained"
 }
 
-secret_demon_blood = {
+MythB_secret_demon_blood_modifier = {
 	icon = magic_positive
 }
 
