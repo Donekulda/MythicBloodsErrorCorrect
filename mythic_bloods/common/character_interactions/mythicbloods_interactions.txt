@@ -35,7 +35,7 @@
 			custom_description = {
 				text = MythB_demon_scheme_blocked
 				subject = scope:recipient
-				NOT = { scope:recipient.has_trait_flag = block_convert_to_demon }
+				NOT = { scope:recipient.has_trait_with_flag = block_convert_to_demon }
 			}
 		}
 		scope:recipient = { exists = location }
