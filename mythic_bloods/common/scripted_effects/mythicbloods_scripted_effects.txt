@@ -1,5 +1,5 @@
 ﻿# Found Kingdom Effect (BoK)
-blood_kingdom_effect = {
+MythB_blood_kingdom_effect = {
 	custom_tooltip = create_new_kingdom
 	show_as_tooltip = {
 		every_held_title = {

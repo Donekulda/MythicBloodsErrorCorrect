@@ -1,4 +1,4 @@
-﻿offer_sanguine_curse = {
+﻿MythB_offer_sanguine_curse_interaction = {
 	category = interaction_category_hostile
 	icon = sanguine
 	common_interaction = yes

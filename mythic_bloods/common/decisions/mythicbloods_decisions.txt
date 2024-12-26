@@ -1,15 +1,15 @@
 ﻿# Found New Kingdom
-blood_kingdom_decision = {
+MythB_blood_kingdom_decision = {
 	picture = { 
 		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
 	}
 	decision_group_type = major
 	ai_check_interval = 60
-	desc = blood_kingdom_decision_desc
+	desc = MythB_blood_kingdom_decision_desc
 
 	# The decision appears if the character has the Blood of Kings trait and holds a duchy or lower title
 	is_shown = {
-		has_trait = blood_kings
+		has_trait = MythB_blood_of_kings
 		highest_held_title_tier <= tier_duchy
 		NOT = { has_game_rule = off_custom_kingdoms }
 		any_held_title = { tier >= tier_county }
@@ -17,7 +17,7 @@ blood_kingdom_decision = {
 
 	# The decision is valid if the character is an independent ruler with the required prestige
 	is_valid = {
-		has_trait = blood_kings
+		has_trait = MythB_blood_of_kings
 		highest_held_title_tier <= tier_duchy
 		prestige_level >= 1
 		is_independent_ruler = yes
@@ -39,7 +39,7 @@ blood_kingdom_decision = {
 
 	# Effects upon taking the decision
 	effect = {
-		blood_kingdom_effect = yes
+		MythB_blood_kingdom_effect = yes
 		if = {
 			limit = {
 				NOT = { exists = global_var:found_kingdom_decision }

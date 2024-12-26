@@ -8,10 +8,10 @@
 @neg_compat_low = -5
 
 # Blood of Kings
-blood_kings = {
+MythB_blood_of_kings = {
 	category = fame
 	
-	icon = blood_kings.dds
+	icon = MythB_blood_of_kings.dds
 	
 	opposites = {
 		inbred
@@ -57,9 +57,9 @@ blood_kings = {
 		first_valid = {
 			triggered_desc = {
 				trigger = { NOT = { exists = this } }
-				desc = trait_blood_kings
+				desc = trait_MythB_blood_of_kings
 			}
-			desc = trait_blood_kings_character_desc
+			desc = trait_MythB_blood_of_kings_character_desc
 		}
 	}
 }
@@ -71,7 +71,7 @@ blood_titans = {
 		inbred
 		blood_ancients
 		blood_demons
-		blood_kings
+		MythB_blood_of_kings
 		blood_midas
 		blood_timeless
 		giant
@@ -123,7 +123,7 @@ blood_demons = {
 	opposites = {
 		inbred
 		blood_ancients
-		blood_kings
+		MythB_blood_of_kings
 		blood_midas
 		blood_timeless
 		blood_titans
@@ -224,7 +224,7 @@ fiendish_allure = {
 	opposites = {
 		inbred
 		blood_ancients
-		blood_kings
+		MythB_blood_of_kings
 		blood_midas
 		blood_timeless
 		blood_titans
@@ -307,7 +307,7 @@ blood_ancients = {
 	opposites = {
 		inbred
 		blood_demons
-		blood_kings
+		MythB_blood_of_kings
 		blood_midas
 		blood_timeless
 		blood_titans
@@ -372,7 +372,7 @@ blood_midas = {
 		inbred
 		blood_ancients
 		blood_demons
-		blood_kings
+		MythB_blood_of_kings
 		blood_timeless
 		blood_titans
 	}
@@ -414,7 +414,7 @@ blood_timeless = {
 		inbred
 		blood_ancients
 		blood_demons
-		blood_kings
+		MythB_blood_of_kings
 		blood_midas
 		blood_titans
 	}
@@ -528,7 +528,7 @@ blood_black = {
 		blood_demons
 		blood_midas
 		blood_timeless
-		blood_kings
+		MythB_blood_of_kings
 		blood_titans
 	}
 

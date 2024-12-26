@@ -1,8 +1,8 @@
 ﻿l_english:
 #Trait Descritptions
-trait_blood_kings: "Blood of Kings"
-trait_blood_kings_desc: "Whether descended from the Kings of Old or chosen by the Divine, this character is royal to behold!"
-trait_blood_kings_character_desc: "Whether descended from the Kings of Old or chosen by the Divine, [ROOT.Char.GetFirstName] is royal to behold!"
+trait_MythB_blood_of_kings: "Blood of Kings"
+trait_MythB_blood_of_kings_desc: "Whether descended from the Kings of Old or chosen by the Divine, this character is royal to behold!"
+trait_MythB_blood_of_kings_character_desc: "Whether descended from the Kings of Old or chosen by the Divine, [ROOT.Char.GetFirstName] is royal to behold!"
 
 trait_blood_demons: "Blood of Demons"
 trait_blood_demons_desc: "A vile, debaucherous creature descended from the Beast himself."
