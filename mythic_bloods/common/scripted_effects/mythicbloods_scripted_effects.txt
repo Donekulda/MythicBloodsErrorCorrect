@@ -13,7 +13,6 @@ blood_kingdom_effect = {
 	dynasty = {
 		add_dynasty_modifier = {
 			modifier = ancestral_throne
-			duration = -1        # Permanent dynasty modifier
 		}
 	}
 
@@ -81,7 +80,10 @@ blood_kingdom_effect = {
 		}
 
 		# Set the de jure liege to the appropriate empire, if applicable
-		if = { limit = { exists = scope:old_empire } scope:new_title.set_de_jure_liege_title = scope:old_empire }
+		if = { 
+			limit = { exists = scope:old_empire } 
+			scope:new_title = { set_de_jure_liege_title = scope:old_empire }
+		}
 
 		# Update all duchies to belong to the new kingdom
 		every_held_title = {
@@ -100,7 +102,7 @@ blood_kingdom_effect = {
 					}
 				}
 				add_to_temporary_list = duchy_for_notification
-				root.save_temporary_scope_value_as = { name = send_notifications value = yes }
+				ROOT = { save_temporary_scope_value_as = { name = send_notifications value = yes } }
 			}
 			set_de_jure_liege_title = scope:new_title
 		}

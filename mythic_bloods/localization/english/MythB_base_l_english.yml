@@ -40,7 +40,9 @@ offer_sanguine_curse: "Offer Sanguine Curse"
 convert_to_demon_interaction_desc: "Attempt to offer the [GetTrait('blood_demons').GetName( GetNullCharacter )] to [recipient.GetShortUINameNoTooltip]"
 blood_drained:0 "Drained of Blood"
 blood_drained_desc:0 "[ROOT.Char.GetSheHe] is too weak to Offer the Curse"
-demon_scheme_blocked:0 "[recipient.GetShortUIName] cannot accept the Curse."
+
+MYTHB_BLOODLINE_SCHEME_demon_scheme_blocked:0 "[recipient.GetShortUIName] cannot accept the Curse."
+
 sanguine_secret_notification_title:0 "Dark Secret Discovered"
 sanguine_secret_notification_desc:0 "[recipient.GetShortUIName] now knows that you have the Blood of Demons."
 secret_demon:0 "Demon Blooded"

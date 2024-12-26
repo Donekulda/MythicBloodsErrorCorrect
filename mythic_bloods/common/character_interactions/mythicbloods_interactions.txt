@@ -31,12 +31,14 @@
 	}
 
 	is_valid_showing_failures_only = {
-		scope:actor.custom_description = {
-			text = demon_scheme_blocked
-			subject = scope:recipient
-			NOT = { scope:recipient.has_character_flag = block_convert_to_demon }
+		scope:actor = {
+			custom_description = {
+				text = MythB_demon_scheme_blocked
+				subject = scope:recipient
+				NOT = { scope:recipient.has_character_flag = block_convert_to_demon }
+			}
 		}
-		scope:recipient.exists = location
+		scope:recipient = { exists = location }
 		OR = {
 			scope:recipient.is_imprisoned = no
 			scope:recipient.imprisoner = scope:actor
@@ -113,7 +115,7 @@
 			add = 25
 		}
 
-		compare_modifier = { recipient = scope:actor value = intrigue multiplier = 2 desc = OFFER_INTRIGUE_MODIFIER }
+		compare_modifier = { target = scope:actor value = intrigue multiplier = 2 desc = OFFER_INTRIGUE_MODIFIER }
 		ai_value_modifier = { who = scope:recipient ai_zeal = -1 max = 50 }
 		modifier = { add = 10 scope:actor.attraction >= 10 scope:actor.attraction < 20 scope:recipient.is_attracted_to_gender_of = scope:actor desc = OFFER_ATTRACTION }
 		modifier = { add = 20 scope:actor.attraction >= 20 scope:actor.attraction < 30 scope:recipient.is_attracted_to_gender_of = scope:actor desc = OFFER_ATTRACTION }

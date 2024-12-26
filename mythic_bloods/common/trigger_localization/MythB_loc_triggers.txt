@@ -1,0 +1,3 @@
+﻿MythB_demon_scheme_blocked = {
+	global = MYTHB_BLOODLINE_SCHEME_demon_scheme_blocked
+}
