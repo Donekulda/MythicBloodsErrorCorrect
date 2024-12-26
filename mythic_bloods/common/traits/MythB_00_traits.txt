@@ -208,6 +208,14 @@ MythB_blood_of_demons = {
 	compatibility = {
 		deviant = @pos_compat_high
 		lustful = @pos_compat_high
+		seducer = @pos_compat_high
+		schemer = @pos_compat_high
+		cannibal = @pos_compat_high
+		sodomite = @pos_compat_high
+		fornicator = @pos_compat_high
+		witch = @pos_compat_high
+		adulterer = @pos_compat_high
+		murderer = @pos_compat_high
 		chaste = @neg_compat_high
 		celibate = @neg_compat_high
 	}
@@ -274,7 +282,7 @@ MythB_fiendish_allure = {
 		}
 	}
 
-	# Needs to be solved differently
+	# Needs to be solved differently - solved with compatibility for now
 	#triggered_opinion = {
 	#	MythB_has_sinful_traits = yes
 	#	ignore_negative_culture_opinion = yes
@@ -293,6 +301,14 @@ MythB_fiendish_allure = {
 	compatibility = {
 		deviant = @pos_compat_high
 		lustful = @pos_compat_high
+		seducer = @pos_compat_high
+		schemer = @pos_compat_high
+		cannibal = @pos_compat_high
+		sodomite = @pos_compat_high
+		fornicator = @pos_compat_high
+		witch = @pos_compat_high
+		adulterer = @pos_compat_high
+		murderer = @pos_compat_high
 		chaste = @neg_compat_high
 		celibate = @neg_compat_high
 	}

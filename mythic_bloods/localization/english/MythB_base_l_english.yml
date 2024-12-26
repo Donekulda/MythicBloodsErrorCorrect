@@ -64,3 +64,7 @@ TRAIT_FLAG_DESC_is_cannibal: "Is always a Cannibal"
 #Opinion Modifiers
 MythB_demon_blood_sinful_opinion: "Spawn of Beast"
 MythB_fiendish_allure_sinful_opinion: "Fiendlishly alluring"
+
+#Custom tooltips
+MythB_offer_sanguine_curse_interaction.has_blood_of_demons: "Has $trait_MythB_blood_of_demons$ or it's public variations"
+MythB_offer_sanguine_curse_interaction.is_imprisoned_by_someone_else: "Tager is Imprisoned by Someone Else"

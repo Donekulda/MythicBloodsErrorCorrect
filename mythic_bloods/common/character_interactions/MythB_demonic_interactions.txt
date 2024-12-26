@@ -16,10 +16,13 @@
 	is_shown = {
 		scope:actor.is_adult = yes
 		scope:actor.is_imprisoned = no
-		OR = {
-			scope:actor.has_trait = MythB_blood_of_demons
-			scope:actor.has_trait = MythB_fiendish_allure
-			scope:actor = { any_secret = { secret_type = MythB_secret_demon } }
+		custom_tooltip = {
+			text = MythB_offer_sanguine_curse_interaction.has_blood_of_demons
+			OR = {
+				scope:actor.has_trait = MythB_blood_of_demons
+				scope:actor.has_trait = MythB_fiendish_allure
+				scope:actor = { any_secret = { secret_type = MythB_secret_demon } }
+			}
 		}
 		NOT = { scope:actor.has_character_modifier = MythB_blood_drained_modifier }
 		scope:recipient.is_adult = yes
@@ -39,9 +42,15 @@
 			}
 		}
 		scope:recipient = { exists = location }
-		OR = {
-			scope:recipient.is_imprisoned = no
-			scope:recipient.imprisoner = scope:actor
+		custom_tooltip = {
+			text = MythB_offer_sanguine_curse_interaction.is_imprisoned_by_someone_else
+			OR = {
+				scope:recipient.is_imprisoned = no
+				AND = {
+					scope:recipient.is_imprisoned = yes
+					scope:recipient.imprisoner != scope:actor
+				}
+			}
 		}
 	}
 
