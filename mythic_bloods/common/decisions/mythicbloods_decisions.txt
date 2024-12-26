@@ -1,4 +1,4 @@
-# Found New Kingdom
+﻿# Found New Kingdom
 blood_kingdom_decision = {
 	picture = { 
 		reference = "gfx/interface/illustrations/decisions/decision_dynasty_house.dds"
@@ -107,7 +107,7 @@ blood_kingdom_decision = {
 		}
 		modifier = {
 			add = -30
-			has_relation_lover = yes
+			num_of_relation_lover >= 1
 		}
 		modifier = {
 			add = -20

@@ -81,10 +81,12 @@
 			limit = { 
 				scope:actor = { any_secret = { secret_type = secret_demon } } 
 			} 
-			random_secret = { 
-				limit = { secret_type = secret_demon } 
-				reveal_to = scope:recipient
-			} 
+			scope:actor = {
+				random_secret = { 
+					limit = { secret_type = secret_demon } 
+					reveal_to = scope:recipient
+				}
+			}
 		}
 		scope:actor = {
 			add_opinion = { target = scope:recipient modifier = hurt_opinion opinion = -50 }
@@ -109,7 +111,7 @@
 		modifier = { is_spouse_of = scope:actor add = 100 desc = AI_YOUR_SPOUSE }
 
 		modifier = {
-			scope:actor.exists = house
+			exists = house
 			house = { has_house_modifier = witch_coven }
 			desc = OFFER_WITCH_COVEN
 			add = 25
@@ -147,6 +149,7 @@
 	}
 	should_use_extra_icon = { scope:actor.has_usable_hook = scope:recipient }
 	extra_icon = "gfx/interface/icons/character_interactions/hook_icon.dds"
+	
 	send_options_exclusive = no
 
 	ai_potential = {

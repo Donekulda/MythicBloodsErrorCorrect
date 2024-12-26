@@ -1,4 +1,4 @@
-ancestral_throne = {
+﻿ancestral_throne = {
 	icon = prestige_positive
 	legitimacy_gain_mult = 0.25
 }
