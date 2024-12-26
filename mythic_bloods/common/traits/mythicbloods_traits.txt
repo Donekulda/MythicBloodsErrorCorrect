@@ -178,12 +178,14 @@ blood_demons = {
 		opinion_modifier = witchcraft_intolerant
 		ignore_opinion_value_if_same_trait = yes
 	}
-	triggered_opinion = {
-		MythB_has_sinful_traits = yes
-		ignore_negative_culture_opinion = yes
-		ignore_different_faith_opinion = yes
-		opinion_modifier = MythB_demon_blood_sinful_opinion
-	}
+	
+	# Needs to be solved differently
+	#triggered_opinion = {
+	#	MythB_has_sinful_traits = yes
+	#	ignore_negative_culture_opinion = yes
+	#	ignore_different_faith_opinion = yes
+	#	opinion_modifier = MythB_demon_blood_sinful_opinion
+	#}
 
 	desc = {
 		first_valid = {
@@ -272,12 +274,13 @@ fiendish_allure = {
 		}
 	}
 
-	triggered_opinion = {
-		MythB_has_sinful_traits = yes
-		ignore_negative_culture_opinion = yes
-		ignore_different_faith_opinion = yes
-		opinion_modifier = MythB_fiendish_allure_sinful_opinion
-	}
+	# Needs to be solved differently
+	#triggered_opinion = {
+	#	MythB_has_sinful_traits = yes
+	#	ignore_negative_culture_opinion = yes
+	#	ignore_different_faith_opinion = yes
+	#	opinion_modifier = MythB_fiendish_allure_sinful_opinion
+	#}
 
 	# Roads to Power AI adjustments
 	ai_vengefulness = dominant_positive_ai_value
@@ -514,7 +517,7 @@ blood_all = {
 		}
 	}
 
-	has_character_flag = block_convert_to_demon
+	flag = block_convert_to_demon
 }
 
 # Bilge-Blooded
